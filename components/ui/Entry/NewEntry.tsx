@@ -12,7 +12,6 @@ export const NewEntry = () => {
   const { addEntries } = useContext(EntriesContext);
   const { setIsAddingEntry, isAddingEntry } = useContext(UIContext);
 
-  // const [isAdding, setIsAdding] = useState(false);
   const [touched, isTouched] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
