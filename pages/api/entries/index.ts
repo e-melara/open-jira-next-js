@@ -17,13 +17,10 @@ export default function handler(
   switch (req.method) {
     case 'GET':
       return getEntries(res);
-
     case 'POST':
       return postEntries(req, res);
     default:
-      res.status(200).json({
-        message: 'Example',
-      });
+      return res.status(400).json({ message: 'Metodo no supportado'});
   }
 }
 
@@ -49,10 +46,9 @@ async function postEntries(req: NextApiRequest, res: NextApiResponse<Data>) {
     await newEntry.save();
     await disconnect();
     return res.status(201).json(newEntry);
-
   } catch (error) {
     res.status(500).json({
-      message: "Algo salio mal!!"
-    })
+      message: 'Algo salio mal!!',
+    });
   }
 }
