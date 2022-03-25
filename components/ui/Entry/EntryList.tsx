@@ -18,7 +18,7 @@ export const EntryList: FC<Props> = ({ status }) => {
 
   const entryFilters = useMemo(
     () => entries.filter(item => item.status === status),
-    [entries]
+    [entries, status]
   );
 
   const onDropHandler = (event: DragEvent) => {
